@@ -41,8 +41,8 @@ def resumir_link():
                 {"role": "system", "content": "Faça um post que eu possa postar no linkedin. Pense em alternativas para gerar mais engajamento e visibilidade"},
                 {"role": "user", "content": prompt}
             ],
-            temperature=0.2,
-            max_tokens=500
+            temperature=0.7,
+            max_tokens=2000
         )
 
         resumo = gpt_response.choices[0].message.content
