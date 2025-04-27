@@ -6,6 +6,7 @@ import os
 
 app = Flask(__name__)
 
+# Pega a API Key da variável de ambiente
 openai_api_key = os.environ.get("OPENAI_API_KEY")
 client = openai.OpenAI(api_key=openai_api_key)
 
@@ -27,22 +28,29 @@ def resumir_link():
     soup = BeautifulSoup(response.text, 'html.parser')
     page_text = soup.get_text()
 
-    prompt = f"Resumo do texto extraído: {page_text[:4000]}"
+    # 🔥 Limpeza opcional do texto extraído (antes de enviar para o GPT)
+    page_text = page_text.replace('\n', ' ').replace('\r', ' ').strip()
+    page_text = ' '.join(page_text.split())
+
+    prompt = f"Resuma o texto a seguir de forma clara e objetiva: {page_text[:4000]}"
 
     try:
         gpt_response = client.chat.completions.create(
             model="gpt-4",
             messages=[
-                {"role": "system", "content": "Faça um post inspirador e descontraído para o linkedin"},
+                {"role": "system", "content": "Você é um assistente que gera resumos curtos, claros e sem quebras de linha."},
                 {"role": "user", "content": prompt}
             ],
-            temperature=0.7,
-            max_tokens=2000
+            temperature=0.2,
+            max_tokens=500
         )
+
         resumo = gpt_response.choices[0].message.content
 
-    resumo = resumo.replace('\n', ' ').replace('\r', ' ').strip()
-resumo = ' '.join(resumo.split())
+        # 🔥 Limpeza do texto retornado pelo GPT
+        resumo = resumo.replace('\n', ' ').replace('\r', ' ').strip()
+        resumo = ' '.join(resumo.split())
+
     except Exception as e:
         return jsonify({"error": f"Erro ao chamar o ChatGPT: {str(e)}"}), 500
 
