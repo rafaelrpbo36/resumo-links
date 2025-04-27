@@ -40,6 +40,9 @@ def resumir_link():
             max_tokens=2000
         )
         resumo = gpt_response.choices[0].message.content
+
+    resumo = resumo.replace('\n', ' ').replace('\r', ' ').strip()
+resumo = ' '.join(resumo.split())
     except Exception as e:
         return jsonify({"error": f"Erro ao chamar o ChatGPT: {str(e)}"}), 500
 
