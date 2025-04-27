@@ -33,11 +33,11 @@ def resumir_link():
         gpt_response = client.chat.completions.create(
             model="gpt-4",
             messages=[
-                {"role": "system", "content": "Faça um post para que eu poste no linkedin"},
+                {"role": "system", "content": "Faça um post inspirador e descontraído para o linkedin"},
                 {"role": "user", "content": prompt}
             ],
-            temperature=0.2,
-            max_tokens=500
+            temperature=0.7,
+            max_tokens=2000
         )
         resumo = gpt_response.choices[0].message.content
     except Exception as e:
