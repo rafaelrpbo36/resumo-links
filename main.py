@@ -38,7 +38,7 @@ def resumir_link():
         gpt_response = client.chat.completions.create(
             model="gpt-4",
             messages=[
-                {"role": "system", "content": "Você é um assistente que gera resumos curtos, claros e sem quebras de linha."},
+                {"role": "system", "content": "Faça um post que eu possa postar no linkedin. Pense em alternativas para gerar mais engajamento e visibilidade"},
                 {"role": "user", "content": prompt}
             ],
             temperature=0.2,
