@@ -36,7 +36,7 @@ def resumir_link():
 
     try:
         gpt_response = client.chat.completions.create(
-            model="gpt-4",
+            model="gpt-g-67f5294842c48191a265643d4311c193-avaliador-de-desempenho-tecnico",
             messages=[
                 {"role": "system", "content": "Faça um post que eu possa postar no linkedin. Sem emojis. Pense em alternativas para gerar mais engajamento e visibilidade"},
                 {"role": "user", "content": prompt}
