@@ -32,7 +32,7 @@ def resumir_link():
     page_text = page_text.replace('\n', ' ').replace('\r', ' ').strip()
     page_text = ' '.join(page_text.split())
 
-    prompt = f"Resuma o texto a seguir de forma clara e objetiva: {page_text[:4000]}"
+    prompt = f"Transforme o textoo a seguir em uma postagem leve, de fácil leitura, sem emojis, sem caracteres especiais e quebra de linha: {page_text[:4000]}"
 
     try:
         gpt_response = client.chat.completions.create(
