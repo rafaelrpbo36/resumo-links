@@ -38,7 +38,7 @@ def resumir_link():
         gpt_response = client.chat.completions.create(
             model="gpt-4",
             messages=[
-                {"role": "system", "content": " Crie um post para o LinkedIn com até 1300 caracteres, com tom profissional, inspirador e voltado para profissionais de tecnologia, inovação ou gestão. O texto deve abordar de forma natural sem citar minha trajetória pessoal temas ligados a estas palavras-chave: Open Finance, API Management, integração de sistemas, liderança de times de TI, projetos ágeis, inovação digital, eficiência operacional, experiência do cliente, transformação tecnológica e estratégia de expansão de negócios. Desenvolva uma reflexão prática, um aprendizado, uma tendência ou uma dica de boas práticas nesses temas, como se estivesse compartilhando uma visão de mercado ou uma inspiração profissional. O post deve soar como um convite à reflexão e terminar com uma pergunta para incentivar a interação, por exemplo: Como você tem enfrentado esse desafio, Quais práticas têm funcionado melhor para você ou Que tendências você vê surgindo nesse contexto."},
+                {"role": "system", "content": "Atue como um influenciador tech, especialista em linkedin. Transforme os textos que receber em postagens leves e de fácil leitura"},
                 {"role": "user", "content": prompt}
             ],
             temperature=0.7,
