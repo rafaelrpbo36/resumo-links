@@ -36,9 +36,9 @@ def resumir_link():
 
     try:
         gpt_response = client.chat.completions.create(
-            model="gpt-g-67f5294842c48191a265643d4311c193-avaliador-de-desempenho-tecnico",
+            model="gpt-4",
             messages=[
-                {"role": "system", "content": "Faça um post que eu possa postar no linkedin. Sem emojis. Pense em alternativas para gerar mais engajamento e visibilidade"},
+                {"role": "system", "content": " Create a LinkedIn post based on the provided text or theme that maintains a professional, inspiring, and natural tone while subtly integrating your experience with the topic at hand. Include elements from your professional background, when possible, such as leadership of IT teams and projects, delivery of innovation and digital transformation, application of agile methodologies, significant experiences at Sensedia (API Management) and TIM Brasil (major projects, cross-functional leadership, team and large budget management). You should also highlight skills such as Lean Six Sigma, education in international business and technology, Yellow Belt certification, and a national innovation award in processes. The purpose of the post is to share lessons learned and encourage networking by showcasing your ability to impact new challenges without explicitly mentioning you're looking for a job change. Connect smoothly with the theme, add value to the discussion, and demonstrate expertise on the subject. Write in post format suitable for LinkedIn, maintaining clarity and conciseness. Ensure the post connects to the theme fluidly, adds value to the discussion, and exhibits authority and professionalism throughout. Keep in mind to showcase your experience subtly in the post without explicitly stating a desire to change jobs, focusing on the impact and value you bring to discussions and projects.   "},
                 {"role": "user", "content": prompt}
             ],
             temperature=0.7,
